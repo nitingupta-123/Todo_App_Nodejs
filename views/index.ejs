@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Stuff I need to do</h1>
+    <form action="/todos" method="POST">
+        <input type="text" name="description" required>
+        <button type="submit">ADD</button>
+    </form>
+    <ul>
+
+        <h3>Pending</h3>
+        <%if(todos.length>0){%>
+        <%todos.forEach((element)=>{%>
+        <li style="margin: 5px;">
+            <form action="todos/<%=element._id%>/completed" method="POST">
+                <%=element.description%> -<%=element.isdone%>
+                <button type="submit">done</button>
+                <button><a style="text-decoration:none;color:black"
+                        href="todos/<%=element._id%>/deleted">delete</a></button>
+            </form>
+
+        </li>
+        <%})%>
+        <%}else{%>
+        <p>: ) YaY! you don't have any pending task</p>
+        <%}%>
+
+
+        <h3>Done</h3>
+        <%if(doneTodos.length>0){%>
+            <%doneTodos.forEach((element)=>{%>
+                <li style="margin: 5px;">
+
+                    <form action="todos/<%=element._id%>/completed" method="POST">
+                        <%=element.description%> -<%=element.isdone%>
+                        <button type="submit">whoops!</button>
+                        <button><a style="text-decoration:none;color:black"
+                                href="todos/<%=element._id%>/deleted">delete</a></button>
+                    </form>
+
+                </li>
+            <%})%>
+        <%}else{%>
+            <p>Done is empty! : (</p>
+        <%}%>
+
+
+    </ul>
+</body>
+
+</html>
