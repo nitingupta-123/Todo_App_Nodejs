@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
 const todoRoute = require('./routes/todoRoute');
-const url = "mongodb://127.0.0.1:27017/Todo_App"
+const url = process.env.url;
 const PORT =process.env.PORT | 8000;
 require('dotenv').config();
 mongoose.connect(url,{
