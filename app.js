@@ -3,9 +3,10 @@ const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
 const todoRoute = require('./routes/todoRoute');
+require('dotenv').config();
 const url = process.env.url;
 const PORT =process.env.PORT | 8000;
-require('dotenv').config();
+console.log('kckskjchskcvk',url);
 mongoose.connect(url,{
         useUnifiedTopology: true,
         useNewUrlParser: true
