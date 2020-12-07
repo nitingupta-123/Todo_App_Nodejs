@@ -5,7 +5,7 @@ const path = require('path');
 const todoRoute = require('./routes/todoRoute');
 require('dotenv').config();
 const url = process.env.url;
-const PORT =process.env.PORT | 8000;
+const port =process.env.PORT | 8000;
 console.log('kckskjchskcvk',url);
 mongoose.connect(url,{
         useUnifiedTopology: true,
@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 app.use('/', todoRoute);
 
 
-
-app.listen(PORT, () => {
-    console.log(`app is connected at http://localhost:${PORT}`);
+const host = '0.0.0.0';
+app.listen(port,host, () => {
+    console.log(`app is connected at port ${port}`);
 })
