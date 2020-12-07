@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const path = require('path');
 const todoRoute = require('./routes/todoRoute');
 const url = "mongodb://127.0.0.1:27017/Todo_App"
-const PORT = 8000;
-
+const PORT =process.env.PORT | 8000;
+require('dotenv').config();
 mongoose.connect(url,{
         useUnifiedTopology: true,
         useNewUrlParser: true
